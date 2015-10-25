@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exploring Linear Regression</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Exploring Linear Regression">
+  <meta name="author" content="Kelly O'Brien">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/default.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Exploring Linear Regression</h1>
+    <h2>Shiny Application</h2>
+    <p>Kelly O'Brien<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Linear Model Explorer Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <div style="display: block;float: right;width: 50%;padding-right:20px;">
+<img src="assets/img/FullApp.png" style="height: 500px;"/>
+</div>
+
+<div style='padding-top: 20px; width: 43%;'>
+<ul>
+  <li style='font-size: 80%;'>Simple dashboard to explore linear regression.</li>
+  <li>Selectable datasets for exploration</li>
+  <li>Responsive feedback to changes in selected dataset features.</li>
+  <li>Responsive updates to model information.</li>
+    <ul>
+      <li style='font-size: 60%;'>Four diagnostic plots for model fit</li>
+      <li style='font-size: 60%;'>Summary information about the model</li>
+      <li style='font-size: 60%;'>Analysis of variance (anova) for the model</li>
+      <li style='font-size: 60%;'>Correlation information for selected features</li>
+    </ul>
+</ul>
+<p style='font-size: 70%;'><a href="https://kdobrien84.shinyapps.io/shinyfirstproject">
+      https://kdobrien84.shinyapps.io/shinyfirstproject</a>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Model Feature Selection</h2>
+  </hgroup>
+  <article data-timings="">
+    <div style="display: block;padding-left:10%;">
+<img src="assets/img/AppTop.png" style="height: 380px;"/>
+</div>
+
+<ul>
+<li>Data Source.  Choose from 5 data sets from the R Datasets package
+
+<ul>
+<li>mtcars, airquality, swiss, attitude and USJudgeRatings</li>
+</ul></li>
+<li>Features.  Enable/disable a feature.
+
+<ul>
+<li>pairs plot and model information updates immediately</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <style>
+em {
+  font-style: italic
+}
+</style>
+
+<h2>Fitted Model Information</h2>
+
+<div style="display: block;padding-left:10%;">
+<img src="assets/img/AppBottom.png" style="height: 350px;"/>
+</div>
+
+<ul>
+<li>The information updates whenever the dataset or features change
+
+<ul>
+<li>diagnostics - performs <em>plot(model)</em> for fitted model using selected features</li>
+<li>summary - captures R output (capture.output) of the <em>summary(model)</em> command</li>
+<li>anova - captures the R output of the <em>anova(model)</em> command</li>
+<li>correlation - shows the output of <em>cor</em> for only selected features</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Diagnostic Plot Example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(datasets)
+model &lt;- lm(Ozone ~ Solar.R+Wind+Temp+Month, data=airquality)
+par(mfrow=c(2,2))
+plot(model)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="600px" height="350px" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Linear Model Explorer Application'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Model Feature Selection'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='NA'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Diagnostic Plot Example'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
